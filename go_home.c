@@ -61,7 +61,7 @@ void show_screen(void* p)
 		
 		// Состояние компаса
 		appdata->compass_calibrated = !isCalibrationRequired();
-		appdata->azimuth = getAzimuh();
+		appdata->azimuth = getAzimuth();
 		// Состояние GPS
 		struct datetime_ dt;
 		navi_struct_ navi_data;
@@ -175,8 +175,7 @@ void screen_job()
 	}
 
 	// Получаем текущий азимут
-	appdata->azimuth = getAzimuh();
-	//if (!appdata->compass_calibrated && appdata->azimuth != 0) {
+	appdata->azimuth = getAzimuth();
 	if (!appdata->compass_calibrated && !isCalibrationRequired()) {
 		// Произошла калибровка компаса - можно получать азимут
 		appdata->compass_calibrated = 1;
